@@ -11,4 +11,8 @@
     background-color: #d4c3c3;
     transition: all .3s ease-in-out;
   }
+  &:disabled:hover {
+    opacity: .4;
+    cursor: no-drop;
+  }
 }
