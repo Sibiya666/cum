@@ -1,0 +1,14 @@
+.btn {
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  &_large {
+    display: block;
+    width: 100%;
+  }
+  &:hover {
+    background-color: #d4c3c3;
+    transition: all .3s ease-in-out;
+  }
+}

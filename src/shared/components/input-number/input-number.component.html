@@ -1,0 +1,2 @@
+<label class="label">{{label}}<sup class="label__sup" *ngIf="require">*</sup></label>
+<input class="input" type="number" (keyup)="changeNumber($event)" (input)="changeValue($event)" #InputNumber>

@@ -1,0 +1,42 @@
+<main class="layout">
+  <form [formGroup]="form" class="form">
+    <app-input [isError]="isInvalid('surname')" [require]="true" label="Фамилия соискателя" formControlName="surname" type="textRu" [errorMsg]="errorMsg.NAME"></app-input>
+    <app-input [isError]="isInvalid('firstname')" [require]="true" label="Имя соискателя" formControlName="firstname" type="textRu" [errorMsg]="errorMsg.NAME"></app-input>
+    <app-input [isError]="isInvalid('middlename')" label="Отчество заявителя" formControlName="middlename" type="textRu" [errorMsg]="errorMsg.MIDDLENAME"></app-input>
+
+    <div [class.input-error]="isInvalid('gender')">
+      <label>Пол соискателя <sup>*</sup></label>
+      <app-radio-button label="М" formControlName="gender" label="М" value="male"></app-radio-button>
+      <app-radio-button label="Ж" formControlName="gender" label="Ж" value="female"></app-radio-button>
+      <span *ngIf="isInvalid('surname')" class="notification notification_alert">{{errorMsg.GENDER}}</span>
+    </div>
+
+    <div class="form__row">
+      <app-datepicker formControlName="birthday" [require]="true" label="Дата рождения соискателя"></app-datepicker>
+    </div>
+
+    <div class="form__row" *ngIf="isVisibleMaritalStatus">
+      <app-dropdown [list]="maritalType[getControl('gender')?.value]"  [isError]="isInvalid('matrialStatus')" [errorMsg]="errorMsg.MARITALSTATUS" formControlName="matrialStatus" label="Семейное положение соискателя"></app-dropdown>
+    </div>
+
+    <div class="form__row">
+      <app-input-number [isError]="isInvalid('children')" type="number" label="Количество детей" formControlName="children"></app-input-number>
+    </div>
+
+    <div class="form__row">
+      <app-input [isError]="isInvalid('email')" [errorMsg]="errorMsg.EMAIL" [require]="true" label="Email" formControlName="email" type="text"></app-input>
+    </div>
+
+    <div class="form__row">
+      <app-input [isError]="isInvalid('comment')" [require]="true" label="Комментарий" formControlName="comment" type="text"></app-input>
+    </div>
+
+    <div class="form__row">
+      <button class="btn btn_large" (click)="save()" #SubmitBtn [disabled]="disableSubmit">Сохранить заявку</button>
+      <p *ngIf="disableSubmit" class="notification notification_alert">Отправка сообщений заблокирована на 15 секунд. Будьте внимательны при заполнении формы. После третьего неверного
+        заполнения, форма сбросится.
+      </p>
+    </div>
+
+  </form>
+</main>

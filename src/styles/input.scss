@@ -1,0 +1,34 @@
+.label {
+  position: relative;
+  display: block;
+  color: var(--black);
+  font-size: var(--font-size-text);
+  line-height: 1;
+  &__sup {
+    position: relative;
+    top: 4px
+  }
+}
+
+.input  {
+  width: 100%;
+  height: 45px;
+  margin-top: 12px;
+  padding: var(--padding-input);
+  border: 1px solid var(--gray);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  font-size: var(--font-size-text);
+  transition: all .3s ease-in;
+  &_textarea {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    resize: none;
+  }
+  &_error {
+    transition: all .3s ease-in-out;
+    border-color: var(--red-paled)
+  }
+}
+

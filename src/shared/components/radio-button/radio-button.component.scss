@@ -1,0 +1,14 @@
+$input-size: 12px;
+
+.input {
+  position: relative;
+  display: inline-block;
+  height: $input-size;
+  width: $input-size;
+  border: 2px solid var(--gray);
+  background-color: white;
+  border-radius: 50%;
+  font-size: 0;
+}
+
+

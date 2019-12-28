@@ -1,0 +1,13 @@
+<label class="label">{{label}}<sup class="label__sup" *ngIf="require">*</sup></label>
+
+<div class="dropdown">
+  <p class="dropdown__title" (click)="changeVisible()">{{findCurrentLabel()?.label||'Нет'}}</p>
+  <div *ngIf="isVisibleList" [@changeVisible] #DropdownList>
+    <ul class="list">
+      <li class="list__item" *ngFor="let item of list" (click)="changeValue(item.value)">{{item.label}}</li>
+    </ul>
+  </div>
+</div>
+
+<span *ngIf="isError" class="notification notification_alert">{{errorMsg || 'Ошибка!'}}</span>
+

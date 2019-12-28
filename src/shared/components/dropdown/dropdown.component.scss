@@ -1,0 +1,33 @@
+.dropdown {
+  position: relative;
+  &__title {
+    padding: 10px;
+    border: 1px solid var(--gray);
+    background-color: #fff;
+    cursor: pointer;
+  }
+}
+
+.list {
+  position: absolute;
+  top: 40px;
+  margin: 0;
+  padding-left: 0;
+  border: 1px solid var(--gray);
+  z-index: 1;
+  &__item {
+    padding: 10px;
+    border-bottom: 1px solid var(--gray);
+    list-style: none;
+    cursor: pointer;
+    background-color: white;
+    transition: all .3s ease-in-out;
+    &:nth-last-child(1) {
+      border: none;
+    }
+    &:hover {
+      background-color:var(--gray);
+      transition: all .3s ease-in-out;
+    }
+  }
+}

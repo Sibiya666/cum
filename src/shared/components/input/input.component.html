@@ -1,0 +1,11 @@
+<label class="label">{{label}}<sup class="label__sup" *ngIf="require">*</sup></label>
+
+<ng-container [ngSwitch]="type">
+  <input *ngSwitchCase="'text'"   [class.input_error]="isError" class="input" type="text" (input)="changeValue($event)" #InputElement>
+  <input *ngSwitchCase="'textRu'"   [class.input_error]="isError" class="input" type="text" (input)="changeValue($event)" onlyRu #InputElement>
+  <input *ngSwitchCase="'textarea'"   [class.input_error]="isError" class="input" type="textarea" (input)="changeValue($event)" #Textarea>
+
+  <span *ngIf="isError" class="notification notification_alert" [@changeVisible]>{{errorMsg || 'Ошибка!'}}</span>
+
+</ng-container>
+

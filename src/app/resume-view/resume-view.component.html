@@ -1,0 +1,31 @@
+<ng-container *ngIf="resume$ | async as resume">
+  <article class="info">
+    <label for="">
+      ФИО: <span>{{resume.surname}} {{resume.firstname}} {{resume.middlename}}</span>
+    </label>
+
+    <label for="">
+      Пол: <span>{{GENDER[resume.gender]}}</span>
+    </label>
+
+    <label for="">
+      Дата рождения: <span>{{resume.birthday | date :'dd.MMM.yyyy'}}</span>
+    </label>
+
+    <label for="">
+      Количество детей: <span>{{resume.children}}</span>
+    </label>
+
+    <label for="" *ngIf="resume.matrialStatus">
+      Семейное положение: <span>{{getMaritalType(MARITAL_TYPE[resume.gender], resume.matrialStatus)}}</span>
+    </label>
+
+    <label for="">
+      Email: <span>{{resume.email}}</span>
+    </label>
+
+    <label for="" *ngIf="resume.comment">
+      Комментарий: <span>{{resume.comment}}</span>
+    </label>
+  </article>
+</ng-container>
